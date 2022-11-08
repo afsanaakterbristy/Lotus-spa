@@ -33,7 +33,7 @@ const Review = () => {
           <img className="w-10 h-10 rounded-full mr-4" src="/ben.png" alt="Avatar of Writer"/>
           <div className="text-sm">
             <p className="text-gray-900 leading-none">John Smith</p>
-            <p className="text-gray-600">Aug 18</p>
+            <p className="text-gray-600">{revi.time}</p>
           </div>
         </div>
       </div>
