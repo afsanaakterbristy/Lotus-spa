@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddServices from "../components/AddServices/AddServices";
 import AllServices from "../components/AllServices/AllServices";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home";
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path: '/editreview/:id',
                 element:<ReviewEdit></ReviewEdit>
+            },
+            {
+                path: '/addservices',
+                element:<AddServices></AddServices>
             },
         ]
     }

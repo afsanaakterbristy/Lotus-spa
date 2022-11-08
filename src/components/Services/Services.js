@@ -24,7 +24,9 @@ const Services = () => {
                         
                     </ServicesCard>)
                 }
+              
             </div>
+           
             {/* checkout/${_id} */}
             <div className='flex justify-center'>
                 <Link to={`/services`}>
