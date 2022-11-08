@@ -1,8 +1,43 @@
-import React from 'react';
+
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
+  const {createUser,providerLogin}=useContext(AuthContext)
+   
     
+     //google
+    const googleProvider=new GoogleAuthProvider()
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+        }).catch(error=>console.error(error))
+    }  
+    
+    //from
+    const handleSubmit= ( event) => {
+         event.preventDefault();
+        const form = event.target;
+        // const name1 = form.name1.value;
+        // const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                form.reset();
+            })
+        .catch(err=>console.error(err))
+
+        
+    }
+
     return (
         <div>
           <>
@@ -13,7 +48,7 @@ const Register = () => {
           <p className='text-sm text-gray-400'>Create a new account</p>
                         </div>
                          {/* onSubmit={handleSubmit} */}
-        <form
+        <form onSubmit={handleSubmit}
           noValidate=''
           action=''
           className='space-y-12 ng-untouched ng-pristine ng-valid'
@@ -96,7 +131,7 @@ const Register = () => {
         </div>
                         <div className='flex justify-center space-x-4'>
                             {/* onClick={handleGoogleSignIn} */}
-          <button  aria-label='Log in with Google' className='p-3 rounded-sm'>
+          <button onClick={handleGoogleSignIn} aria-label='Log in with Google' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'

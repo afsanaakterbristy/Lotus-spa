@@ -1,7 +1,44 @@
-import React from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
+    const { signIn, providerLogin } = useContext(AuthContext);
+    
+     const handleSubmit = (event) => {
+         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        signIn(email, password)
+         .then(result => {
+           const user = result.user;
+             console.log(user)
+             form.reset();
+           
+           
+            })
+            .catch(error => {
+                console.error(error)
+               
+            })
+          .finally(() => {
+            
+           })
+    }
+
+       //google
+    const googleProvider=new GoogleAuthProvider()
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+              const user = result.user;
+              
+              console.log(user)
+        }).catch(error=>console.error(error))
+    } 
+
     return (
          <>
             <div className='flex justify-center items-center pt-8 mb-48'>
@@ -12,8 +49,8 @@ const Login = () => {
             Sign in to access your account
           </p>
         </div>
-        {/* onSubmit={handleSubmit} */}
-        <form 
+      
+        <form onSubmit={handleSubmit}
           noValidate=''
           action=''
           className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -72,8 +109,8 @@ const Login = () => {
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <div className='flex justify-center space-x-4'>
-            {/* onClick={handleGoogleSignIn} */}
-          <button  aria-label='Log in with Google' className='p-3 rounded-sm'>
+         
+          <button onClick={handleGoogleSignIn} aria-label='Log in with Google' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'
