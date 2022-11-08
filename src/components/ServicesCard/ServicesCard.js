@@ -14,7 +14,7 @@ const ServicesCard = ({ service }) => {
                  
      <PhotoProvider>
       <PhotoView src={img}>
-       <figure><img className='w-96' src={img} alt="Shoes" /></figure> 
+       <figure><img className='w-96 h-34' src={img} alt="Shoes" /></figure> 
       </PhotoView>
     </PhotoProvider>
         
@@ -25,7 +25,7 @@ const ServicesCard = ({ service }) => {
               <p>{description.slice(0, 100) + '...'}</p> : <>{description}</>}</>
                     <Link to={`/servicedetails/${_id}`}>
                        <div className="card-actions justify-end mb-4">
-            <button className="btn btn-primary">See More</button>
+            <button className="btn bg-purple-800">See More</button>
             </div>
         </Link>
          </div> 

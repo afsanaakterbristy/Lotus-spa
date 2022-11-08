@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import icon from '../../assets/icon.png'
 
 const Header = () => {
         const {user, logOut}=useContext(AuthContext)
@@ -50,8 +51,9 @@ const Header = () => {
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
        {menuItems}
       </ul>
-    </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl">
+          </div>
+              <img className='w-9 ml-8' src={icon} alt="" />
+                <Link to="/" className="btn btn-ghost normal-case text-xl font-bold">
                   Lotus Spa  
     </Link>
   </div>
@@ -61,7 +63,7 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <button className="btn btn-warning">Appoiment</button>
+    <button className="btn">Profile</button>
   </div>
 </div>
     );

@@ -12,9 +12,9 @@ const AllServices = () => {
     return (
         <div>
              <div className='text-center'>
-            <p className="text-2xl font-bold text-black">We make sure we serve</p>
-            <h2 className='text-5xl font-semibold'>The Best Of Our Service</h2>
-            <p>You deserve better than a rushed massage by a rookie therapist in a place that makes you feel more stressed.</p>
+            <p className="text-2xl font-bold text-black my-3">We make sure we serve</p>
+            <h2 className='text-5xl font-semibold mb-4'>The Best Of Our Service</h2>
+            <p className='mb-4'>You deserve better than a rushed massage by a rookie therapist in a place that makes you feel more stressed.</p>
            
         </div>
          <div className='grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ml-16'>
