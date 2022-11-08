@@ -1,0 +1,50 @@
+[
+    {
+        
+        "service_id": "04",
+        "title": "Luxury Spa",
+        "img": "https://media.istockphoto.com/id/1337284179/photo/shot-of-a-beautiful-young-woman-relaxing-in-a-sauna-at-a-spa.jpg?s=612x612&w=0&k=20&c=SDokAY5sgemVb0AfkQ8-zgIMhAIPzVCvNc0qhIA-UrM=",
+        "price": "20.00",
+        "description": "A luxury spa experience should do more than just pamper your body. It should indulge all of your senses and restore your well-being. A luxury spa experience is an escape from the stresses of a busy lifestyle and provides the opportunity of self-renewal. Considering the fact that Las Vegas is the land of indulgence, it should come as no surprise that luxury spa experiences here are unparalleled. From the opulent decor and spa etiquette to the relaxing aromas, the secret to unwinding is in the details. A luxury spa experience in Las Vegas is so blissfully mind-blowing that it will remain painted in your memory long after you’ve turned in your robe."
+    },
+    {
+        
+        "service_id": "05",
+        "title": "Food Therapy",
+        "img": "https://images.unsplash.com/photo-1633526543913-d30e3c230d1f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+        "price": "40.00",
+        "description": "Food therapy is a specialist massage that uses smooth, flat, heated basalt stones that are positioned along your spine, in the palms of your hands, along your legs and between the toes. Typically from river beds, basalt stones are used for massage as they have a rich iron content that retains heat.These elements are earth, fire, metal, wood and water. It is thought that stone therapy provide balance in the body by encompassing all of the five elements into the service.The stone massage is a form of alternative medicine massage therapy and bodywork involving the placement of a number of either heated or cooled stones to the body for the purpose of pain relief, relaxation and therapy.[1] There are a manifold of variations and techniques used in the application of stone massage therapy, deriving from a variety of traditional practices."
+    },
+    {
+        
+        "service_id": "01",
+        "title": "Aroma Therapy",
+        "img": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNwYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+        "price": "30.00",
+        "description": "Aromatherapy is used in a wide range of settings, from health spas to hospitals, to treat a variety of conditions. In general, it seems to relieve pain, improve mood, and promote a sense of relaxation.Essential oils distillation is attributed to the Persians in the 10th century, though the practice may have been in use for a long time prior to this. Information about essential oil distillation was published in the 16th century in Germany. French physicians in the 19th century recognized the potential of essential oils in treating disease.Medical doctors became more established in the 19th century and focused on using chemical drugs. However, the French and German doctors still recognized the role of natural botanicals in treating illness."
+    },
+    {
+       
+        "service_id": "02",
+        "title": "Skin Treatment",
+        "img": "https://media.istockphoto.com/id/1263894913/photo/woman-doing-cosmetic-treatments.jpg?s=612x612&w=0&k=20&c=5m7k4hbexYZgJJFyet4iVXl_ZbAe6hd3HkDgbn48e9U=",
+        "price": "50.00",
+        "description": "Skin Treatments are like a facial for your body. They leave your skin feeling soft and silky smooth. It is equally as important to cleanse, exfoliate, and hydrate the skin on your body as it is the skin of your face.-A body scrub is the most popular exfoliating treatment.-A detoxifying treatment is when you’re covered with mud, algae, or seaweed and wrapped in a thermal blanket. Detoxifying treatments stimulate your metabolic system and speed up its ability to get rid of waste.-A hydrating treatment is when you hydrate your skin with cream or lotion.-A body wrap is used to treat cellulite and may have a diuretic effect that aids in temporary weight loss."
+    },
+    {
+         
+        "service_id": "03",
+        "title": "Body Massage",
+        "img": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3BhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "price": "30.00",
+        "description": "The most popular body message spa experience and treatment in the United States is a massage. Massage therapy has been around for thousands of years and offers numerous health benefits like reducing stress, pain, and muscle tension. Different types of massages use different techniques and therefore provide different benefits.Swedish massage is a gentle form of massage that uses long strokes, kneading, deep circular movements, vibration and tapping to help relax and energize you.Deep tissue massage uses slower, more-forceful strokes to target the deeper layers of muscle and connective tissue and is used to help ease muscle damage from injuries.Aromatherapy massage is massage therapy with essential oils that are absorbed through the skin. Inhaling essential oils is thought to promote beneficial changes in the mind and body by affecting the limbic system.–Hot stone massage is a specialty massage where the therapist uses smooth, heated stones as an extension of their own hands, or by placing them on the body. The heat helps relax you and loosens your muscles so your massage therapist can get a deeper massage in less time."
+    },
+    {
+        
+        "service_id": "06",
+        "title": "Facial Massage",
+        "img": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNwYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+        "price": "70.00",
+        "description": "Facials are the second most popular spa experience and treatment. Facials usually include cleansing, exfoliating, extracting, massaging, and masking. With more options for facials than ever before, how do you know which is right for you? The best way to determine what type of facial you need is to consult with an esthetician. However, here’s a general breakdown of what you can expect before you make an appointment:-A Microdermabrasion Facial exfoliates and removes the superficial layer of dry, dead skin cells to achieve a healthy, youthful glow.-A Lymphatic Facial Massage helps stimulate the lymphatic glands in the face to relieve any excess fluid, tension and puffiness.An LED Facial is a non-invasive skin-care treatment that has multiple benefits, including stimulating collagen and treating mild to moderate acne and redness.-An Anti-Aging Facial uses collagen to treat mature skin that shows aging symptoms such as sagging. An anti-aging facial focuses on cleansing the pores, which can get congested easily and cause large pores to be more visible. If you are 30 years old or older, we would recommend this facial for you."
+    }
+]
