@@ -29,12 +29,14 @@ const AllReview = () => {
                   }
                 })
         }
-    }
+  }
+  
+ 
 
 
     return (
         <div>
-            <h2>review{reviews.length}</h2>
+           
             
          <div className="overflow-x-auto ">
   <table className="table">
@@ -47,8 +49,7 @@ const AllReview = () => {
       </tr>
     </thead>
     <tbody> 
-      {/* row 1  */}
-     
+      
     {
         reviews.map(rev => <ReviewShow kew={rev._id} rev={rev} handleDelete={handleDelete}> 
         </ReviewShow>)                    

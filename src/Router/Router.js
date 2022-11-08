@@ -5,6 +5,7 @@ import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import AllReview from "../components/Review/AllReview";
+import ReviewEdit from "../components/Review/ReviewEdit";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import Main from "../layout/Main";
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element:<Register></Register>
+            },
+            {
+                path: '/editreview/:id',
+                element:<ReviewEdit></ReviewEdit>
             },
         ]
     }

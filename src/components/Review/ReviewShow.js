@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ReviewShow = ({ rev,handleDelete }) => {
+
+const ReviewShow = ({ rev, handleDelete }) => {
+   
     const {_id, customer, email, photo, textarea, reviewName, review } = rev;
     // const [reviewService,setReviewService]=useState({})
     
@@ -10,7 +13,12 @@ const ReviewShow = ({ rev,handleDelete }) => {
     //     .then(data=>setReviewService(data))
         
     // }, [review])
+    const navigate=useNavigate()
+    const handleEdit = id => {
+        navigate(`/editreview/${id}`)
+    }
     
+   
    
     return (
         <div>
@@ -31,15 +39,16 @@ const ReviewShow = ({ rev,handleDelete }) => {
         <td>
           {email}
           
-         
         </td>
         <td>{textarea}</td>
         <th>
         </th>
-          <button className="btn btn-danger btn-xs">Edit</button>
+         
           <button onClick={()=>handleDelete(_id)} className="btn btn-primary btn-xs">Delete</button>
+          <button onClick={()=>handleEdit(_id)} className="btn btn-ghost btn-xs">Edite</button>
       </tr>
      
+ 
         </div>
     );
 };
