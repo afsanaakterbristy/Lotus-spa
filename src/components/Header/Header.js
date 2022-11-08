@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Header = () => {
-        const {user}=useContext(AuthContext)
-
+        const {user, logOut}=useContext(AuthContext)
+    
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch();
+  }
+  
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link>
         </li>
@@ -18,6 +24,9 @@ const Header = () => {
         <li className='font-semibold'><Link to='/allreview'>My Review</Link>
             </li>
         <li className='font-semibold'><Link to='/addservices'>Add Services</Link>
+            </li>
+            <li className='font-semibold'>
+              <button onClick={handleLogout}>SingOut</button>
             </li>
           
           </>

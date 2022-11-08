@@ -27,7 +27,7 @@ const Review = () => {
             Members only
           </p>
           <div className="text-gray-900 font-bold text-xl mb-2">{revi.customer}</div>
-          <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+                          <p className="text-gray-700 text-base"> {revi.textarea}</p>
         </div>
         <div className="flex items-center">
           <img className="w-10 h-10 rounded-full mr-4" src="/ben.png" alt="Avatar of Writer"/>

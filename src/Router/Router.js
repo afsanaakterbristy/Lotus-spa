@@ -9,6 +9,7 @@ import AllReview from "../components/Review/AllReview";
 import ReviewEdit from "../components/Review/ReviewEdit";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import Main from "../layout/Main";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -26,11 +27,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allreview',
-                element:<AllReview></AllReview>
+                element:<PrivateRoute><AllReview></AllReview></PrivateRoute>
             },
             {
                 path: '/servicedetails/:id',
-                element:<ServiceDetails></ServiceDetails>,
+                element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
