@@ -4,6 +4,7 @@ import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
+import AllReview from "../components/Review/AllReview";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import Main from "../layout/Main";
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element:<AllServices></AllServices>
+            },
+            {
+                path: '/allreview',
+                element:<AllReview></AllReview>
             },
             {
                 path: '/servicedetails/:id',

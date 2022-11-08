@@ -10,20 +10,20 @@ const AuthProvider = ({children}) => {
     const [loading,setLoading]=useState(true)
 //google
     const providerLogin = (provider) => {
-       //  setLoading(true);
+        setLoading(true);
         return signInWithPopup(auth,provider)
     }
     
 
     //use pass email
     const createUser = (email, password) => {
-       // setLoading(true);
+       setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
     //login
     const signIn = (email, password) => {
-        // setLoading(true);
+         setLoading(true);
         return signInWithEmailAndPassword(auth,email, password)
 
     }
@@ -45,7 +45,7 @@ const AuthProvider = ({children}) => {
              setUser(currentUser);
              
          
-        // setLoading(false)
+         setLoading(false)
      });
         return () => {
             unsubscribe();

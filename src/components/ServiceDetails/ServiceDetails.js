@@ -13,7 +13,7 @@ const ServiceDetails = () => {
         const photo = form.photo.value;
         const email = user?.email ||'unregister';
         const textarea = form.textarea.value;
-        console.log(name, email, photo, textarea);
+        //console.log(name, email, photo, textarea);
         
         const review = {
             review: _id,
@@ -24,6 +24,22 @@ const ServiceDetails = () => {
             photo,
             textarea
         }
+        fetch('http://localhost:5000/review', {
+            method: "POST",
+            headers: {
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.acknowledged){
+                    alert('review done')
+                }
+            })
+            .catch(er=>console.error(er))
+
 
     }
     return (
