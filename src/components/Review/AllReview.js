@@ -38,26 +38,13 @@ const AllReview = () => {
         <div>
            
             
-         <div className="overflow-x-auto ">
-  <table className="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Massage</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody> 
-      
+        
     {
         reviews.map(rev => <ReviewShow kew={rev._id} rev={rev} handleDelete={handleDelete}> 
         </ReviewShow>)                    
      }
      
-    </tbody>
-  </table>
-</div>
+
 
         </div>
     );

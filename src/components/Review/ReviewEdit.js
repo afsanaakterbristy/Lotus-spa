@@ -45,22 +45,22 @@ const ReviewEdit = () => {
     }
    
     return (
-        <div>       
-             <div>
-                <h2 className='text-2xl font-bold text-center'>Reviews</h2>
-
-
-                <h2 className='text-2xl m-4'>Write Your Comment</h2>
+        <div className='flex justify-center items-center pt-8 mb-48 mx-96'>       
+             <div className='flex flex-col w-full p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+                
+                <h2 className='text-2xl font-semibold my-6'>Edit Your Comment</h2>
                 <form  onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 gap-4'>
                 
-                <input type="text" name='name' placeholder="Type here" defaultValue={reviews?.customer}  className="input input-bordered input-primary w-full max-w-xs" />
-                <input type="text" name='photo' placeholder="Type here" defaultValue={reviews?.photo}  className="input input-bordered input-primary w-full max-w-xs" />
-                <input type="text" name='email' placeholder="Type here" defaultValue={user?.email} className="input input-bordered input-primary w-full max-w-xs" readOnly/>
+                <input type="text" name='name' placeholder="Type here" defaultValue={reviews?.customer}  className="input input-bordered input-primary w-full " />
+                <input type="text" name='photo' placeholder="Type here" defaultValue={reviews?.photo}  className="input input-bordered input-primary w-full" />
+                <input type="text" name='email' placeholder="Type here" defaultValue={user?.email} className="input input-bordered input-primary w-full" readOnly/>
                
-                <textarea name='textarea' className="textarea textarea-bordered max-w-xs" placeholder="Message" defaultValue={reviews?.textarea} ></textarea>
+                <textarea name='textarea' className="textarea textarea-bordered" placeholder="Message" defaultValue={reviews?.textarea} ></textarea>
                 </div>
-                    <input type="submit" className='btn' value='comment' />
+                    <div className='flex justify-center m-6'>
+                         <input type="submit" className='btn bg-purple-800 text-white' value='comment' />
+                   </div>
                 </form>
             </div>
         </div>

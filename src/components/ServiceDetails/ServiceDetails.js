@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Review from '../Review/Review';
 
@@ -61,20 +61,27 @@ const ServiceDetails = () => {
         </div>
             <div>
                 <h2 className='text-2xl font-bold text-center'>Reviews</h2>
-
-
-                <h2 className='text-2xl m-4'>Write Your Comment</h2>
+                {
+                    user?.email?
+                     <div>
+                    
+                <h2 className='text-2xl font-bold my-4'>Write Your Comment</h2>
                 <form  onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 gap-4'>
                 
-                <input type="text" name='name' placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
-                <input type="text" name='photo' placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
-                <input type="text" name='email' placeholder="Type here" defaultValue={user?.email} className="input input-bordered input-primary w-full max-w-xs" readOnly/>
+                <input type="text" name='name' placeholder="Type here" className="input input-bordered input-primary w-full " />
+                <input type="text" name='photo' placeholder="Type here" className="input input-bordered input-primary w-full" />
+                <input type="text" name='email' placeholder="Type here" defaultValue={user?.email} className="input input-bordered input-primary w-full " readOnly/>
                
-                <textarea name='textarea' className="textarea textarea-bordered max-w-xs" placeholder="Bio"></textarea>
+                <textarea name='textarea' className="textarea textarea-bordered " placeholder="Bio"></textarea>
                 </div>
-                    <input type="submit" className='btn' value='comment' />
+                    <input type="submit" className='btn bg-purple-800 text-white mt-3' value='comment' />
                 </form>
+                        </div>
+                        : <><p className='ml-10 text-2xl'>Please Give A <Link className='text-purple-800 font-semibold' to='/login'>Review</Link></p></>
+                }
+               
+               
 
                 {
                     <Review></Review>
