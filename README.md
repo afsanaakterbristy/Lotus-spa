@@ -1,3 +1,19 @@
+# Name:Lotus Spa
+
+A lotus spa is dedicated to inspiring Balanced Life Healthy Mind.Pharetra incididunt nullam quidem similique haretra incididunt nullam quidem similique.
+
+# What I do in this Project?
+In this Project I have done many thing.I make there a navbar with the options: website logo, website name, a meaningful section, Blog.When I logged in, I will see more options like My reviews, Add service, and the logout button in the navbar.
+When I clicking on the image of the service, the picture will be viewed on full screen.I Add two extra sections on the home page.In this services section, I will be divided into two parts.I make my website mobile & desktop responsive.I will display errors when the user's email address or password doesn't match.Make the Environment variable to hide the firebase key.
+
+
+## Live Link
+Hosted in Netlify -> [EdTech]()
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

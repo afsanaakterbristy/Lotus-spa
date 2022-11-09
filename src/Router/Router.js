@@ -39,17 +39,17 @@ const router = createBrowserRouter([
                 path: '/login',
                 element:<Login></Login>
             },
-            {
+            { 
                 path: '/register',
                 element:<Register></Register>
             },
             {
                 path: '/editreview/:id',
-                element:<ReviewEdit></ReviewEdit>
+                element:<PrivateRoute><ReviewEdit></ReviewEdit></PrivateRoute>
             },
             {
                 path: '/addservices',
-                element:<AddServices></AddServices>
+                element:<PrivateRoute><AddServices></AddServices></PrivateRoute>
             },
             {
                 path: '/blog',

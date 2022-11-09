@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
@@ -21,7 +22,8 @@ const Login = () => {
            const user = result.user;
              console.log(user)
              form.reset();
-           navigate(from,{replace:true})
+           navigate(from, { replace: true })
+           toast.success('Your login success')
            
             })
             .catch(error => {console.error(error)})

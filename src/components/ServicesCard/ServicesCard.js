@@ -7,7 +7,7 @@ const ServicesCard = ({ service }) => {
     const {_id, img, price, title,description } = service;
     return (
      
-            <div>
+            <div> 
 
             <div className="card card-compact w-96 bg-base-100 shadow-xl mb-5">
                 
@@ -25,7 +25,7 @@ const ServicesCard = ({ service }) => {
               <p>{description.slice(0, 100) + '...'}</p> : <>{description}</>}</>
                     <Link to={`/servicedetails/${_id}`}>
                        <div className="card-actions justify-end mb-4">
-            <button className="btn bg-purple-800">See More</button>
+            <button className="btn bg-purple-800">View Details</button>
             </div>
         </Link>
          </div> 

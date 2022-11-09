@@ -38,7 +38,7 @@ const AllReview = () => {
     return (
         <div>
            
-            
+           <h2 className="text-3xl font-bold text-center p-3">All Reviews</h2>  
         
     {
         reviews.map(rev => <ReviewShow kew={rev._id} rev={rev} handleDelete={handleDelete}> 

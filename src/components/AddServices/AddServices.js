@@ -1,4 +1,5 @@
 import React, { useContext} from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
@@ -34,7 +35,7 @@ const AddServices = () => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    alert('spa done')
+                    toast.success('Services Successfully added')
                 }
             })
             .catch(er=>console.error(er))
@@ -58,7 +59,7 @@ const AddServices = () => {
         >
           <div className='space-y-4'>
             <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
+              <label htmlFor='name' className='block mb-2 text-sm'>
                 Name
               </label>
               <input
@@ -67,7 +68,7 @@ const AddServices = () => {
                 id='email'
                 placeholder=''
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
-                data-temp-mail-org='0'
+                data-temp-mail-org='0' required
               />
             </div>
             <div>
@@ -81,7 +82,7 @@ const AddServices = () => {
                 name='price'
                 id='password'
                 placeholder=''
-                className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900' required
               />
             </div>
             <div>
@@ -95,7 +96,7 @@ const AddServices = () => {
                 name='photo'
                 id='password'
                 placeholder=''
-                className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900' required
               />
             </div>
             <div>
@@ -109,7 +110,7 @@ const AddServices = () => {
                 name='textarea'
                 id='password'
                 placeholder=''
-                className='w-full h-36 px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
+                className='w-full h-36 px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900' required
               />
             </div>
           </div>

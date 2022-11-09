@@ -3,6 +3,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import Review from '../Review/Review';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceDetails = () => {
     const {_id, img, price, title, description } = useLoaderData();
@@ -50,7 +52,11 @@ const ServiceDetails = () => {
         <div className='grid gap-2 grid-cols-1  lg:grid-cols-2'>
             <div className='m-5'>
                 <div className="card card-compact w-full bg-base-100 shadow-xl mb-5">
-        <figure><img className='w-full' src={img} alt="Shoes" /></figure>
+        <PhotoProvider>
+      <PhotoView src={img}>
+       <figure><img className='w-full' src={img} alt="Shoes" /></figure> 
+      </PhotoView>
+    </PhotoProvider>
         <div className="card-body">
                 <h2 className="card-title">{ title }</h2>
                     <p>Price:${price}</p>
@@ -79,7 +85,7 @@ const ServiceDetails = () => {
                     <input type="submit" className='btn bg-purple-800 text-white mt-3' value='comment' />
                 </form>
                         </div>
-                        : <><p className='ml-10 text-2xl'>Please Give A <Link className='text-purple-800 font-semibold' to='/login'>Review</Link></p></>
+                        : <><p className='ml-10 text-2xl'>Please Login For Give A <Link className='text-purple-800 font-semibold' to='/login'>Review</Link></p></>
                 }
                
                
