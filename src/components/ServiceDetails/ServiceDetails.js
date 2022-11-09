@@ -41,6 +41,7 @@ const ServiceDetails = () => {
                 console.log(data)
                 if(data.acknowledged){
                     alert('review done')
+                    form.reset();
                 }
             })
             .catch(er=>console.error(er))
@@ -77,7 +78,7 @@ const ServiceDetails = () => {
                 <div className='grid grid-cols-1 gap-4'>
                 
                 <input type="text" name='name' placeholder="Type here" className="input input-bordered input-primary w-full " required/>
-                <input type="text" name='photo' placeholder="Type here" className="input input-bordered input-primary w-full" required/>
+                <input type="text"  name='photo' placeholder="Type here" className="input input-bordered input-primary w-full" required/>
                 <input type="text" name='email' placeholder="Type here" defaultValue={user?.email} className="input input-bordered input-primary w-full " readOnly/>
                
                 <textarea name='textarea' className="textarea textarea-bordered " placeholder="Massage" required></textarea>
@@ -88,7 +89,7 @@ const ServiceDetails = () => {
                         : <><p className='ml-10 text-2xl'>Please Login For Give A <Link className='text-purple-800 font-semibold' to='/login'>Review</Link></p></>
                 }
                 {
-                    <Review></Review>
+                    <Review _id={_id}></Review>
                 }
             </div>
             

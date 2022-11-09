@@ -14,7 +14,7 @@ const AllServices = () => {
     }, [])
     
       if (loading) {
-        return <div className="flex justify-center items-center content-center w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-500"></div>
+        return <div className='flex justify-center items-center min-h-[60vh]'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-purple-500"></div></div>
     }
 
     return (

@@ -7,24 +7,20 @@ const AllReview = () => {
     const { user ,logOut} = useContext(AuthContext)
     const [reviews,setReviews]=useState([])
     useTitle("MyReview")
-
+   
     useEffect(() => {
         fetch(`http://localhost:5000/review?email=${user?.email}`,{
             headers: {
                 authorization:`Bearer ${localStorage.getItem('token')}`
-            }
-            
+            } 
         })
             .then(res => {
                 if (res.status === 401 || res.status === 403) {
                  return logOut()
                } 
-              return  res.json()
+              return res.json()
             })
-        .then(data=>{
-            
-            setReviews(data)
-        })
+        .then(data=>setReviews(data))
     },[user?.email,reviews,logOut])
     
    const handleDelete = id => {
@@ -54,11 +50,12 @@ const AllReview = () => {
           :
           <>
           
-                 <h2 className="text-3xl font-bold text-center p-3">All Reviews</h2>  
+                 <h2 className="text-3xl font-bold text-center p-3">My Reviews</h2>
+                 
         
     {
         reviews.map(rev => <ReviewShow kew={rev._id} rev={rev} handleDelete={handleDelete}> 
-        </ReviewShow>)                    
+        </ReviewShow>)                     
      }
           
           

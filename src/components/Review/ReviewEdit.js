@@ -52,7 +52,7 @@ const ReviewEdit = () => {
                 <h2 className='text-2xl font-semibold my-6'>Edit Your Comment</h2>
                 <form  onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 gap-4'>
-                
+                 
                 <input type="text" name='name' placeholder="Type here" defaultValue={reviews?.customer}  className="input input-bordered input-primary w-full " readOnly/>
                 <input type="text" name='photo' placeholder="Type here" defaultValue={reviews?.photo}  className="input input-bordered input-primary w-full" />
                 <input type="text" name='email' placeholder="Type here" defaultValue={user?.email} className="input input-bordered input-primary w-full" readOnly/>

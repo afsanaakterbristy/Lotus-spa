@@ -1,16 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 
-const Review = () => {
+const Review = ({_id}) => {
 
-  const { user } = useContext(AuthContext);
+ // const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
      useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
-            .then(res => res.json())
-        .then(data=>setReviews(data))
-    },[user?.email,reviews])
-    return (
+        fetch(`http://localhost:5000/reviewtwo?review=${_id}`)
+          .then(res => res.json())
+          .then(data => {
+            setReviews(data)
+          })
+    },[_id,reviews])
+
+  //console.log(_id)
+  return (
+      
         <div>
             {
           reviews.map(revi => <>
