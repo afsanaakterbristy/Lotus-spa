@@ -4,15 +4,28 @@ import useTitle from '../../hooks/useTitle';
 import ReviewShow from './ReviewShow';
 
 const AllReview = () => {
-    const { user } = useContext(AuthContext)
+    const { user ,logOut} = useContext(AuthContext)
     const [reviews,setReviews]=useState([])
     useTitle("MyReview")
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
-            .then(res => res.json())
-        .then(data=>setReviews(data))
-    },[user?.email,reviews])
+        fetch(`http://localhost:5000/review?email=${user?.email}`,{
+            headers: {
+                authorization:`Bearer ${localStorage.getItem('token')}`
+            }
+            
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                 return logOut()
+               } 
+              return  res.json()
+            })
+        .then(data=>{
+            
+            setReviews(data)
+        })
+    },[user?.email,reviews,logOut])
     
    const handleDelete = id => {
         const proceed = window.confirm('want to deleted')
@@ -32,29 +45,27 @@ const AllReview = () => {
         }
   }
   
- 
-
-
     return (
         <div>
          
             {reviews.length === 0 ?<>
             <h2 className="text-3xl font-bold text-center p-3">There is no review</h2>  
             </>
-                 :
-
-                   <div>
+          :
+          <>
+          
                  <h2 className="text-3xl font-bold text-center p-3">All Reviews</h2>  
         
     {
         reviews.map(rev => <ReviewShow kew={rev._id} rev={rev} handleDelete={handleDelete}> 
         </ReviewShow>)                    
      }
-      </div>
+          
+          
+          </>
+          
+                 
          }
-     
-
-
         </div>
     );
 };

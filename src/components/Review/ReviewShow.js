@@ -1,11 +1,14 @@
-import React from 'react';
+import React from 'react'; 
 import { useNavigate } from 'react-router-dom';
+
 import useTitle from '../../hooks/useTitle';
 
 
 const ReviewShow = ({ rev, handleDelete }) => {
-    useTitle("ReviewShow")
-    const {_id, customer, email, photo, textarea, reviewName,time} = rev;
+  useTitle("ReviewShow");
+ 
+  const { _id, customer, email, photo, textarea, reviewName, time } = rev;
+  
     // const [reviewService,setReviewService]=useState({})
     
     // useEffect(() => {
@@ -23,7 +26,9 @@ const ReviewShow = ({ rev, handleDelete }) => {
    
     return (
       
-              <div>
+         
+            
+             <div>
            
           
     <div className=" w-full lg:max-w-full lg:flex">
@@ -52,7 +57,10 @@ const ReviewShow = ({ rev, handleDelete }) => {
       </div>
     </div>
  
-        </div>
+            </div>
+           
+      
+             
                 
      
      

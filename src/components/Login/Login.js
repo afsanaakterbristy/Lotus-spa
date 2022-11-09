@@ -23,8 +23,26 @@ const Login = () => {
            const user = result.user;
              console.log(user)
            form.reset();
-           setError(''); 
-           navigate(from, { replace: true })
+           setError('');          
+              const currentUser = {
+            email:user.email
+          }
+
+          //get jwt token
+          fetch('http://localhost:5000/jwt', {
+            method: 'POST',
+            headers: {
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(currentUser)
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data);
+              //localstorage
+              localStorage.setItem('token', data.token);
+              navigate(from,{replace:true})
+            })
            toast.success('Your login success')
            
             })
@@ -43,12 +61,30 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
               const user = result.user;
-               navigate(from,{replace:true})
+               const currentUser = {
+            email:user.email
+          }
+
+          //get jwt token
+          fetch('http://localhost:5000/jwt', {
+            method: 'POST',
+            headers: {
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(currentUser)
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data);
+              //localstorage
+              localStorage.setItem('token', data.token);
+              navigate(from,{replace:true})
+            })
               console.log(user)
         }).catch(error=>console.error(error))
   } 
    if (loading) {
-        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+        return <div className="flex justify-center items-center w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-500"></div>
     }
 
     return (

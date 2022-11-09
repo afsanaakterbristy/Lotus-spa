@@ -13,8 +13,8 @@ const Review = () => {
     return (
         <div>
             {
-                reviews.map(revi => <>
-                
+          reviews.map(revi => <>
+              
                      <div className="p-10">
   
            <div className=" w-full lg:max-w-full lg:flex">
