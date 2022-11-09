@@ -1,13 +1,17 @@
 
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
   useTitle("Register")
-  const {createUser,providerLogin}=useContext(AuthContext)
+  const { createUser, providerLogin } = useContext(AuthContext);
+  const [error, setError] = useState('')
+   const location = useLocation()
+  const navigate = useNavigate();
+    const from=location.state?.from?.pathname||'/'
    
     
      //google
@@ -15,8 +19,9 @@ const Register = () => {
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
-                const user = result.user;
-                console.log(user)
+              const user = result.user;
+              console.log(user)
+              navigate(from, { replace: true })
         }).catch(error=>console.error(error))
     }  
     
@@ -24,18 +29,23 @@ const Register = () => {
     const handleSubmit= ( event) => {
          event.preventDefault();
         const form = event.target;
-        // const name1 = form.name1.value;
-        // const photoURL = form.photoURL.value;
+        const name1 = form.name1.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-
+        console.log(name1,photoURL);
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+              console.log(user);
+              navigate(from, { replace: true })
+               setError('');
                 form.reset();
             })
-        .catch(err=>console.error(err))
+         .catch(error => {
+            console.error(error)
+            setError(error.message);
+          })
 
         
     }
@@ -49,7 +59,7 @@ const Register = () => {
           <h1 className='my-3 text-4xl font-bold text-purple-900 dark:text-black'>Register</h1>
           <p className='text-sm text-gray-400'>Create a new account</p>
                         </div>
-                         {/* onSubmit={handleSubmit} */}
+                         
         <form onSubmit={handleSubmit}
           noValidate=''
           action=''
@@ -119,7 +129,7 @@ const Register = () => {
                 Sign Up
                   </button>
             <h2 className='text-xs mt-1 hover:underline text-red-400 font-bold'>
-            {/* {error} */}
+            {error}
           </h2>
             </div>
           </div>

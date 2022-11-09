@@ -76,20 +76,17 @@ const ServiceDetails = () => {
                 <form  onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 gap-4'>
                 
-                <input type="text" name='name' placeholder="Type here" className="input input-bordered input-primary w-full " />
-                <input type="text" name='photo' placeholder="Type here" className="input input-bordered input-primary w-full" />
+                <input type="text" name='name' placeholder="Type here" className="input input-bordered input-primary w-full " required/>
+                <input type="text" name='photo' placeholder="Type here" className="input input-bordered input-primary w-full" required/>
                 <input type="text" name='email' placeholder="Type here" defaultValue={user?.email} className="input input-bordered input-primary w-full " readOnly/>
                
-                <textarea name='textarea' className="textarea textarea-bordered " placeholder="Bio"></textarea>
+                <textarea name='textarea' className="textarea textarea-bordered " placeholder="Massage" required></textarea>
                 </div>
                     <input type="submit" className='btn bg-purple-800 text-white mt-3' value='comment' />
                 </form>
                         </div>
                         : <><p className='ml-10 text-2xl'>Please Login For Give A <Link className='text-purple-800 font-semibold' to='/login'>Review</Link></p></>
                 }
-               
-               
-
                 {
                     <Review></Review>
                 }

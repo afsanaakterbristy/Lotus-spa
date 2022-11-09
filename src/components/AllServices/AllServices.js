@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import ServicesCard from '../ServicesCard/ServicesCard';
 
 const AllServices = () => {
     const [Services, setServices] = useState([]);
+     const { loading } = useContext(AuthContext);
     useTitle("Services")
     useEffect(() => {
         fetch('http://localhost:5000/allservices')
             .then(res => res.json())
         .then(data=>setServices(data))
-    },[])
+    }, [])
+    
+      if (loading) {
+        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+    }
 
     return (
         <div>

@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -7,6 +7,7 @@ import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
   const { signIn, providerLogin } = useContext(AuthContext);
+  const [error,setError]=useState('')
   const location = useLocation()
   const navigate = useNavigate();
   useTitle('Login')
@@ -21,12 +22,18 @@ const Login = () => {
          .then(result => {
            const user = result.user;
              console.log(user)
-             form.reset();
+           form.reset();
+           setError('');
            navigate(from, { replace: true })
            toast.success('Your login success')
            
             })
-            .catch(error => {console.error(error)})
+            .catch(error => {
+              console.error(error);
+              setError(error.message);
+            
+            })
+         
          
     }
 
@@ -99,7 +106,7 @@ const Login = () => {
         <div className='space-y-1'>
         
           <h2 className='text-xs mt-1 hover:underline text-red-400 font-semibold'>
-            {/* {error} */}
+            {error}
           </h2>
                         
         </div>
