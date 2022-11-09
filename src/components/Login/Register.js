@@ -7,7 +7,7 @@ import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
   useTitle("Register")
-  const { createUser, providerLogin } = useContext(AuthContext);
+  const { createUser, providerLogin,loading } = useContext(AuthContext);
   const [error, setError] = useState('')
    const location = useLocation()
   const navigate = useNavigate();
@@ -48,6 +48,9 @@ const Register = () => {
           })
 
         
+  }
+   if (loading) {
+        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
     }
 
     return (

@@ -12,7 +12,7 @@ const AllReview = () => {
         fetch(`http://localhost:5000/review?email=${user?.email}`)
             .then(res => res.json())
         .then(data=>setReviews(data))
-    },[user?.email])
+    },[user?.email,reviews])
     
    const handleDelete = id => {
         const proceed = window.confirm('want to deleted')
@@ -37,13 +37,21 @@ const AllReview = () => {
 
     return (
         <div>
-           
-           <h2 className="text-3xl font-bold text-center p-3">All Reviews</h2>  
+         
+            {reviews.length === 0 ?<>
+            <h2 className="text-3xl font-bold text-center p-3">There is no review</h2>  
+            </>
+                 :
+
+                   <div>
+                 <h2 className="text-3xl font-bold text-center p-3">All Reviews</h2>  
         
     {
         reviews.map(rev => <ReviewShow kew={rev._id} rev={rev} handleDelete={handleDelete}> 
         </ReviewShow>)                    
      }
+      </div>
+         }
      
 
 

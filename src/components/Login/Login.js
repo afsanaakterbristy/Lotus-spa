@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-  const { signIn, providerLogin } = useContext(AuthContext);
+  const { signIn, providerLogin,loading } = useContext(AuthContext);
   const [error,setError]=useState('')
   const location = useLocation()
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Login = () => {
            const user = result.user;
              console.log(user)
            form.reset();
-           setError('');
+           setError(''); 
            navigate(from, { replace: true })
            toast.success('Your login success')
            
@@ -46,7 +46,10 @@ const Login = () => {
                navigate(from,{replace:true})
               console.log(user)
         }).catch(error=>console.error(error))
-    } 
+  } 
+   if (loading) {
+        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+    }
 
     return (
          <>

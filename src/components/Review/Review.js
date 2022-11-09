@@ -9,14 +9,15 @@ const Review = () => {
         fetch(`http://localhost:5000/review?email=${user?.email}`)
             .then(res => res.json())
         .then(data=>setReviews(data))
-    },[user?.email])
+    },[user?.email,reviews])
     return (
         <div>
             {
                 reviews.map(revi => <>
+                
                      <div className="p-10">
   
-    <div className=" w-full lg:max-w-full lg:flex">
+           <div className=" w-full lg:max-w-full lg:flex">
     
       <div className="border-b  border-gray-400  lg:border-gray-400 bg-white rounded-b lg:rounded-b lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div className="mb-8">
