@@ -1,11 +1,11 @@
-import React, { useContext} from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../../contexts/AuthProvider';
+
 import useTitle from '../../hooks/useTitle';
 
 const AddServices = () => {
 
-      const { user } = useContext(AuthContext)
+      
       useTitle("AddServices");
 
         const handleSubmit = event => {
@@ -24,7 +24,7 @@ const AddServices = () => {
             price,
             description:textarea
         }
-        fetch('http://localhost:5000/services', {
+        fetch('https://service-server-side.vercel.app/services', {
             method: "POST",
             headers: {
                 'content-type':'application/json'

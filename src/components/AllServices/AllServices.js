@@ -6,12 +6,14 @@ import ServicesCard from '../ServicesCard/ServicesCard';
 const AllServices = () => {
     const [Services, setServices] = useState([]);
     const { loading } = useContext(AuthContext);
+    
     useTitle("Services")
     useEffect(() => {
-        fetch('http://localhost:5000/allservices')
+        fetch('https://service-server-side.vercel.app/allservices')
             .then(res => res.json())
         .then(data=>setServices(data))
     }, [])
+     
     
       if (loading) {
         return <div className='flex justify-center items-center min-h-[60vh]'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-purple-500"></div></div>

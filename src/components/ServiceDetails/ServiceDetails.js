@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import Review from '../Review/Review';
@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 const ServiceDetails = () => {
     const {_id, img, price, title, description } = useLoaderData();
     const { user } = useContext(AuthContext);
+    const location=useLocation()
     useTitle("ServicesDetails")
     const handleSubmit = event => {
         event.preventDefault();
@@ -30,7 +31,7 @@ const ServiceDetails = () => {
             photo,
             textarea
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://service-server-side.vercel.app/review', {
             method: "POST",
             headers: {
                 'content-type':'application/json'
@@ -84,7 +85,7 @@ const ServiceDetails = () => {
                     <input type="submit" className='btn bg-purple-800 text-white mt-3' value='comment' />
                 </form>
                         </div>
-                        : <><p className='ml-10 text-2xl'>Please Login For Give A <Link className='text-purple-800 font-semibold' to='/login'>Review</Link></p></>
+                        : <><p className='ml-10 text-2xl'>Please Login For Give A <Link state={{from:location}} replace className='text-purple-800 font-semibold' to='/login'>Review</Link></p></>
                 }
                 {
                     <Review _id={_id}></Review>

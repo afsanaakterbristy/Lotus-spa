@@ -12,7 +12,7 @@ const ReviewEdit = () => {
     const { id } = router;
     const navigate=useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:5000/review/${id}`)
+        fetch(`https://service-server-side.vercel.app/review/${id}`)
         .then(res => res.json())
         .then(data=>setReviews(data))
     },[id])
@@ -28,7 +28,7 @@ const ReviewEdit = () => {
        }
         console.log(newReview)
         
-        fetch(`http://localhost:5000/review/${id}`, {
+        fetch(`https://service-server-side.vercel.app/review/${id}`, {
             method: 'PATCH',
               headers: {
                 'content-type':'application/json'

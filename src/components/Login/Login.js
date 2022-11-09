@@ -6,30 +6,33 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-  const { signIn, providerLogin,loading } = useContext(AuthContext);
+  const { signIn, providerLogin } = useContext(AuthContext);
   const [error,setError]=useState('')
+  const [spinner,setSpinner]=useState(false)
   const location = useLocation()
   const navigate = useNavigate();
   useTitle('Login')
-  const from=location.state?.from?.pathname||'/'
+  const from = location.state?.from?.pathname || '/'
+  console.log(from)
     
      const handleSubmit = (event) => {
-         event.preventDefault();
+       event.preventDefault();
+       setSpinner(true)
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         signIn(email, password)
          .then(result => {
            const user = result.user;
-             console.log(user)
+            console.log(user)
            form.reset();
            setError('');          
-              const currentUser = {
+            const currentUser = {
             email:user.email
           }
 
           //get jwt token
-          fetch('http://localhost:5000/jwt', {
+          fetch('https://service-server-side.vercel.app/jwt', {
             method: 'POST',
             headers: {
               'content-type':'application/json'
@@ -41,14 +44,17 @@ const Login = () => {
               console.log(data);
               //localstorage
               localStorage.setItem('token', data.token);
+               navigate(from,{replace:true})
             })
-            navigate(from,{replace:true})
+           setSpinner(false)
+           
            toast.success('Your login success')
            
             })
             .catch(error => {
               console.error(error);
               setError(error.message);
+              setSpinner(false)
             
             })
          
@@ -66,7 +72,7 @@ const Login = () => {
           }
 
           //get jwt token
-          fetch('http://localhost:5000/jwt', {
+          fetch('https://service-server-side.vercel.app/jwt', {
             method: 'POST',
             headers: {
               'content-type':'application/json'
@@ -83,9 +89,9 @@ const Login = () => {
             })
         }).catch(error=>console.error(error))
   } 
-  //  if (loading) {
-  //       return <div className='flex justify-center items-center min-h-[60vh]'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-purple-500"></div></div>
-  //   }
+   if (spinner) {
+        return <div className='flex justify-center items-center min-h-[60vh]'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-purple-500"></div></div>
+    }
 
     return (
          <>

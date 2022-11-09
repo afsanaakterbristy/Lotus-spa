@@ -9,16 +9,17 @@ import { setAuthToken } from '../../Token/Token';
 
 const Register = () => {
   useTitle("Register")
-  const { createUser, providerLogin,loading } = useContext(AuthContext);
+  const { createUser, providerLogin } = useContext(AuthContext);
+  const [spinner,setSpinner]=useState(false)
   const [error, setError] = useState('')
-   const location = useLocation()
+  const location = useLocation()
   const navigate = useNavigate();
-    const from=location.state?.from?.pathname||'/'
-   
-    
+  const from=location.state?.from?.pathname||'/'
+  
      //google
     const googleProvider=new GoogleAuthProvider()
     const handleGoogleSignIn = () => {
+      
         providerLogin(googleProvider)
             .then(result => {
               const user = result.user;
@@ -31,7 +32,8 @@ const Register = () => {
     
     //from
     const handleSubmit= ( event) => {
-         event.preventDefault();
+      event.preventDefault();
+       setSpinner(true)
         const form = event.target;
         const name1 = form.name1.value;
         const photoURL = form.photoURL.value;
@@ -40,24 +42,26 @@ const Register = () => {
         console.log(name1,photoURL);
         createUser(email, password)
             .then(result => {
-                const user = result.user;
+              const user = result.user;
               console.log(user);
               setAuthToken(user)
               navigate(from, { replace: true })
               toast.success('Your Register success')
-               setError('');
-                form.reset();
+              setSpinner(false)
+              setError('');
+              form.reset();
             })
          .catch(error => {
             console.error(error)
-            setError(error.message);
+           setError(error.message);
+           setSpinner(false)
           })
 
         
   }
-  //  if (loading) {
-  //       return <div className='flex justify-center items-center min-h-[60vh]'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-purple-500"></div></div>
-  //   }
+   if (spinner) {
+        return <div className='flex justify-center items-center min-h-[60vh]'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-purple-500"></div></div>
+    }
 
     return (
         <div>
