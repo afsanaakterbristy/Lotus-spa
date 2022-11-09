@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import icon from '../../assets/icon.png'
 
 const Header = () => {
-        const {user, logOut}=useContext(AuthContext)
+  const {user, logOut}=useContext(AuthContext)
     
   const handleLogout = () => {
     logOut()

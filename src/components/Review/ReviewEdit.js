@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const ReviewEdit = () => {
     const router = useParams();
-
+    useTitle("ReviewEdit")
     const { user } = useContext(AuthContext)
     const [reviews,setReviews]=useState({})
     const { id } = router;

@@ -1,10 +1,11 @@
 import React, { useContext} from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const AddServices = () => {
 
       const { user } = useContext(AuthContext)
-    
+      useTitle("AddServices");
 
         const handleSubmit = event => {
         event.preventDefault();

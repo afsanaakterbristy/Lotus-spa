@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import OtherSection from '../OtherSection/OtherSection';
 import Services from '../Services/Services';
 
 const Home = () => {
+  useTitle("Home")
     return (
      <>
         <div>
