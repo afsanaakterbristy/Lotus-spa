@@ -68,9 +68,6 @@ const Header = () => {
      {menuItems}
     </ul>
   </div>
-  {/* <div className="navbar-end">
-    <button className="btn">Profile</button>
-  </div> */}
 </div>
     );
 };

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import ReviewShow from './ReviewShow';
@@ -33,7 +34,7 @@ const AllReview = () => {
                 .then(data => {
                   console.log(data)
                   if (data.deleteCount > 0) {
-                    alert('done deleted')
+                   toast.success('Thanks for giving review')
                     const remaining = reviews.filter(revi => revi._id !== id);
                     setReviews(remaining)
                   }
@@ -48,20 +49,13 @@ const AllReview = () => {
             <h2 className="text-3xl font-bold text-center p-3">There is no review</h2>  
             </>
           :
-          <>
-          
+          <>         
                  <h2 className="text-3xl font-bold text-center p-3">My Reviews</h2>
-                 
-        
     {
         reviews.map(rev => <ReviewShow kew={rev._id} rev={rev} handleDelete={handleDelete}> 
         </ReviewShow>)                     
      }
-          
-          
           </>
-          
-                 
          }
         </div>
     );

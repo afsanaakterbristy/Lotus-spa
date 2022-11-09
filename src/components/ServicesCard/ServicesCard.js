@@ -8,15 +8,12 @@ const ServicesCard = ({ service }) => {
     return (
      
             <div> 
-
-            <div className="card card-compact w-96 bg-base-100 shadow-xl mb-5">
-                
-                 
-     <PhotoProvider>
+            <div className="card card-compact w-96 bg-base-100 shadow-xl mb-5">                                 
+      <PhotoProvider>
       <PhotoView src={img}>
-       <figure><img className='w-96 h-34' src={img} alt="Shoes" /></figure> 
+         <figure><img className='w-96 h-34' src={img} alt="Shoes" /></figure> 
       </PhotoView>
-    </PhotoProvider>
+      </PhotoProvider>
         
         <div className="card-body">
                 <h2 className="card-title">{ title }</h2>
@@ -30,9 +27,7 @@ const ServicesCard = ({ service }) => {
         </Link>
          </div> 
        </div>
-                         
-
-             </div>               
+         </div>               
           
     );
 };

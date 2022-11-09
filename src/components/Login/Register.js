@@ -2,6 +2,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 import { setAuthToken } from '../../Token/Token';
@@ -24,6 +25,7 @@ const Register = () => {
               console.log(user)
               setAuthToken(user)
               navigate(from, { replace: true })
+              toast.success('Your Register success')
         }).catch(error=>console.error(error))
     }  
     
@@ -42,6 +44,7 @@ const Register = () => {
               console.log(user);
               setAuthToken(user)
               navigate(from, { replace: true })
+              toast.success('Your Register success')
                setError('');
                 form.reset();
             })
@@ -82,7 +85,7 @@ const Register = () => {
                 id='name'
                 placeholder='Enter Your Email Here'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
-                data-temp-mail-org='0'
+                data-temp-mail-org='0' required
               />
                 </div>
                 <div>
@@ -95,7 +98,7 @@ const Register = () => {
                 id='name'
                 placeholder='Enter Your Name Here'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
-                data-temp-mail-org='0'
+                data-temp-mail-org='0' required
               />
             </div>
             <div>
@@ -148,7 +151,7 @@ const Register = () => {
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
                         <div className='flex justify-center space-x-4'>
-                            {/* onClick={handleGoogleSignIn} */}
+                            
           <button onClick={handleGoogleSignIn} aria-label='Log in with Google' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'

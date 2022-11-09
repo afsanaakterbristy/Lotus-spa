@@ -5,7 +5,7 @@ import ServicesCard from '../ServicesCard/ServicesCard';
 
 const AllServices = () => {
     const [Services, setServices] = useState([]);
-     const { loading } = useContext(AuthContext);
+    const { loading } = useContext(AuthContext);
     useTitle("Services")
     useEffect(() => {
         fetch('http://localhost:5000/allservices')

@@ -20,13 +20,12 @@ const Services = () => {
         </div>
          <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    Services.map(service => <ServicesCard service={service}>   
+                    Services.map(service => <ServicesCard key={service._id} service={service}>   
                     </ServicesCard>)
                 }
               
             </div>
            
-            {/* checkout/${_id} */}
             <div className='flex justify-center'>
                 <Link to={`/services`}>
                        <div className="card-actions justify-end m-8">

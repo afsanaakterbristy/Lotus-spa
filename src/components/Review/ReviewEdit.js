@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
@@ -37,8 +38,9 @@ const ReviewEdit = () => {
          .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.success){
-                    alert('newreview done')
+                if (data.success) {
+                    toast.success('Your review has been updated')
+                    
                     navigate('/allreview')
                 }
             })

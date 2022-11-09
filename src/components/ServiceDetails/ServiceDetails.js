@@ -5,6 +5,7 @@ import useTitle from '../../hooks/useTitle';
 import Review from '../Review/Review';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { toast } from 'react-toastify';
 
 const ServiceDetails = () => {
     const {_id, img, price, title, description } = useLoaderData();
@@ -39,13 +40,12 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.acknowledged){
-                    alert('review done')
+                if (data.acknowledged) {
+                    toast.success('Thanks for review ')               
                     form.reset();
                 }
             })
             .catch(er=>console.error(er))
-
 
     }
     return (
@@ -54,17 +54,15 @@ const ServiceDetails = () => {
             <div className='m-5'>
                 <div className="card card-compact w-full bg-base-100 shadow-xl mb-5">
         <PhotoProvider>
-      <PhotoView src={img}>
-       <figure><img className='w-full' src={img} alt="Shoes" /></figure> 
-      </PhotoView>
-    </PhotoProvider>
+         <PhotoView src={img}>
+          <figure><img className='w-full' src={img} alt="Shoes" /></figure> 
+        </PhotoView>
+       </PhotoProvider>
         <div className="card-body">
                 <h2 className="card-title">{ title }</h2>
                     <p>Price:${price}</p>
-                    <p>{description}</p>
-                    
-            </div>
-          
+                    <p>{description}</p>                    
+            </div>         
     </div>
         </div>
             <div>

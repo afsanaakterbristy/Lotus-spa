@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../contexts/AuthProvider';
+import React, {  useEffect, useState } from 'react';
+
 
 const Review = ({_id}) => {
 
- // const { user } = useContext(AuthContext);
+
   const [reviews, setReviews] = useState([]);
      useEffect(() => {
         fetch(`http://localhost:5000/reviewtwo?review=${_id}`)
