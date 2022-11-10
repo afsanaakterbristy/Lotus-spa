@@ -1,21 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../contexts/AuthProvider';
+import React, {  useEffect, useState } from 'react';
 import useTitle from '../../hooks/useTitle';
 import ServicesCard from '../ServicesCard/ServicesCard';
 
 const AllServices = () => {
     const [Services, setServices] = useState([]);
-    const { loading } = useContext(AuthContext);
+    const [spinner,setSpinner]=useState(false)
     
     useTitle("Services")
     useEffect(() => {
+        setSpinner(true)
         fetch('https://service-server-side.vercel.app/allservices')
             .then(res => res.json())
-        .then(data=>setServices(data))
+            .then(data => {
+                setServices(data)
+                 setSpinner(false)
+            })
+           
     }, [])
-     
     
-      if (loading) {
+    
+      if (spinner) {
         return <div className='flex justify-center items-center min-h-[60vh]'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-purple-500"></div></div>
     }
 
