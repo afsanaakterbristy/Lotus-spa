@@ -119,7 +119,7 @@ const AddServices = () => {
           <div>
             <button
               type='submit'
-              className='w-full px-8 py-3 font-semibold rounded-md bg-purple-900 dark:bg-black hover:bg-gray-700 hover:text-white text-gray-100'
+              className='w-full px-8 py-3 font-semibold rounded-md bg-purple-900  hover:bg-gray-700 hover:text-white text-gray-100'
             >
               Add Services
             </button>
@@ -127,11 +127,11 @@ const AddServices = () => {
         </form>
         
         <div className='flex items-center pt-4 space-x-1'>
-          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
+          <div className='flex-1 h-px sm:w-16 '></div>
           <p className='px-3 text-sm dark:text-gray-400'>
            
           </p>
-          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
+          <div className='flex-1 h-px sm:w-16 '></div>
         </div>
         <div className='flex justify-center space-x-4'>
         
