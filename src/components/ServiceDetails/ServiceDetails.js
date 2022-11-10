@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 const ServiceDetails = () => {
     const {_id, img, price, title, description } = useLoaderData();
     const { user } = useContext(AuthContext);
+    console.log('afsa',user?.displayName,user?.photoURL);
     const location=useLocation()
     useTitle("ServicesDetails")
     const handleSubmit = event => {
@@ -76,8 +77,8 @@ const ServiceDetails = () => {
                 <form  onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 gap-4'>
                 
-                <input type="text" name='name' placeholder="Type here" className="input input-bordered input-primary w-full " required/>
-                <input type="text"  name='photo' placeholder="Type here" className="input input-bordered input-primary w-full" required/>
+                <input type="text" name='name' placeholder="Type here" className="input input-bordered input-primary w-full " defaultValue={user?.displayName} readOnly/>
+                <input type="text"  name='photo' placeholder="Type here"  className="input input-bordered input-primary w-full" defaultValue={user?.photoURL} readOnly/>
                 <input type="text" name='email' placeholder="Type here" defaultValue={user?.email} className="input input-bordered input-primary w-full " readOnly/>
                
                 <textarea name='textarea' className="textarea textarea-bordered " placeholder="Massage" required></textarea>

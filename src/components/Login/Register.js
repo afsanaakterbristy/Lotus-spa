@@ -9,7 +9,7 @@ import { setAuthToken } from '../../Token/Token';
 
 const Register = () => {
   useTitle("Register")
-  const { createUser, providerLogin } = useContext(AuthContext);
+  const { createUser, providerLogin,updateUserProfile } = useContext(AuthContext);
   const [spinner,setSpinner]=useState(false)
   const [error, setError] = useState('')
   const location = useLocation()
@@ -44,6 +44,7 @@ const Register = () => {
             .then(result => {
               const user = result.user;
               console.log(user);
+              handleUpdateProfile(name1, photoURL);
               setAuthToken(user)
               navigate(from, { replace: true })
               toast.success('Your Register success')
@@ -59,6 +60,20 @@ const Register = () => {
 
         
   }
+
+  //for profile
+ const handleUpdateProfile = (name1, photoURL) => {
+        const profile = {
+            displayName: name1,
+            photoURL:photoURL
+    }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(error => console.error(error))
+  }
+
+
+
    if (spinner) {
         return <div className='flex justify-center items-center min-h-[60vh]'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-purple-500"></div></div>
     }
