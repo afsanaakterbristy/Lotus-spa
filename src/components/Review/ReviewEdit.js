@@ -48,7 +48,7 @@ const ReviewEdit = () => {
     }
    
     return (
-        <div className='flex justify-center items-center pt-8 mb-48 mx-96'>       
+        <div className='flex justify-center items-center lg:pt-8 lg:mb-48 lg:mx-96'>       
              <div className='flex flex-col w-full p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
                 
                 <h2 className='text-2xl font-semibold my-6'>Edit Your Comment</h2>
@@ -65,7 +65,7 @@ const ReviewEdit = () => {
                          <input type="submit" className='btn bg-purple-800 text-white' value='comment' />
                    </div>
                 </form>
-            </div>
+            </div> 
         </div>
     );
 };

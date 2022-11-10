@@ -2,8 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ReviewShow = ({ rev, handleDelete }) => {
-
+  
   const { _id, customer, email, photo, textarea, reviewName, time } = rev;
+
   
     const navigate=useNavigate()
     const handleEdit = id => {
@@ -25,7 +26,8 @@ const ReviewShow = ({ rev, handleDelete }) => {
             </div>
       </div>
         <div className="flex items-center">
-          <img className="w-10 h-10 rounded-full mr-4" src={photo} alt="Avatar of Writer"/>
+           
+            <img className="w-10 h-10 rounded-full mr-4" src={photo} alt="Avatar of Writer" />
           <div className="text-sm">
             <p className="text-gray-900 leading-none font-semibold">{customer}</p>
             <p className="text-gray-600">{email}</p>

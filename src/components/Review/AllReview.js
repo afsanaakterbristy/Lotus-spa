@@ -25,7 +25,7 @@ const AllReview = () => {
     },[user?.email,reviews,logOut])
     
    const handleDelete = id => {
-        const proceed = window.confirm('want to deleted')
+        const proceed = window.confirm('Want to deleted')
         if (proceed) {
             fetch(`https://service-server-side.vercel.app/review/${id}`, {
                 method:'DELETE'
@@ -39,6 +39,7 @@ const AllReview = () => {
                     setReviews(remaining)
                   }
                 })
+             toast.success('Your review deleted')
         }
   }
   
