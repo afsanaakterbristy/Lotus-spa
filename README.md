@@ -8,7 +8,7 @@ When I clicking on the image of the service, the picture will be viewed on full 
 
 
 ## Live Link
-Hosted in Netlify -> [EdTech](https://services-745db.web.app/services)
+Hosted in Netlify -> [Lotus-spa](https://services-745db.web.app/services)
 
 
 
